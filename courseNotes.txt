@@ -1,8 +1,8 @@
 Hello notes!
 
-#L1: Variables and Data Types
+###L1: Variables and Data Types
 
-Variables - java variables have a name and a value (the name is immutable, the value can change)
+#Variables - java variables have a name and a value (the name is immutable, the value can change)
 
 Java varaibles have to have an assigned type. Such as INT or STRING, etc. This cannot be changed.
 
@@ -17,3 +17,43 @@ To initialize (set a value for) the variable, type in:
 To update the variable (since its initially 0 in this case...), you would:
 
   passengers = passengers + 5
+
+#Displaying Variables - a way of displaying the value stored inside a variable
+
+One way is to print a line to the console, so using the example variable above,
+it would look like this:
+
+  System.out.println(passengers);
+
+#String Variables - can contain on or many characters (and, its even indexed!)
+
+The syntax would look like this:
+
+  String driver;
+
+And to initialize:
+
+  driver = "Hamish";
+
+Want to know how many letters are in that string? Use this!
+
+  int letters = driver.length();
+  System.out.println(letters);
+
+Want to update every char in the strin to uppercase? Use this!
+
+  String driver;
+  driver = "Hamish";
+  driver = driver.toUpperCase();
+  System.out.println(driver);
+
+#String Concatenation - Joining strings together to build a longer string.
+
+Here's an example of string concatenation:
+
+  String driverFirstName;
+  driverFirstName = "Hamish";
+  String driverLastName;
+  driverLastName = "Blake";
+  String driverFullName = driverFirstName + driverLastName;
+  System.out.println(driverFullName);
