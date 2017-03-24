@@ -57,3 +57,69 @@ Here's an example of string concatenation:
   driverLastName = "Blake";
   String driverFullName = driverFirstName + driverLastName;
   System.out.println(driverFullName);
+
+The above code is concatenated, not formatted in a friendly way. If you want to do the same, but make it readable (with like, a space in between f/l name) do this:
+
+  String driverFirstName;
+  driverFirstName = "Hamish";
+  String driverLastName;
+  driverLastName = "Blake";
+  String driverFullName = driverFirstName + " " + driverLastName;
+  System.out.println(driverFullName);
+
+You can also do that to integer values:
+
+  int stops;
+  int fare;
+  stops = 0;
+  fare = 0;
+  stops = stops + 1;
+  fare = fare + 5;
+  System.out.println("The bus made $" + fare + " after " + stops + "stops.");
+
+#String Quiz - What would this output?
+
+  String language = "java";
+  String feeling = "Love";
+  feeling = feeling.toLowerCase();
+  language = language.toUpperCase();
+  System.out.println("I " + feeling + " " + language);
+
+Answer: I love JAVA
+
+#Variable Names - rules and regulations
+
+  String driverFirstName;
+  driverFirstName = "Hamish";
+
+When creating a variable name, always follow the lower camel case, like the variable name above.
+
+Variable name rules:
+Try to always use full words and not abbreviations.
+Variable names are case sensitive.
+Start your variable names with a letter.
+You can start with $ or _ but its not advised.
+You cannot have spaces in variable names.
+
+Oh, and the way we were declaring and initializing variables separately above? You can do it all at once, to save typing and codespace, like this:
+
+  String player = "Jack";
+  int stockPrice = 100;
+
+And so on...
+
+#Data Types - More than just int and String...
+
+int is limited to 10 digits.
+Long is limited to 10 digits * 10000000
+Double can store data types with decimal places
+
+String - we know this one
+char - stores a single character only, ie: char answer = 'b'; (Note: This uses single quote only!!)
+
+boolean - stores true or false, thats it.
+
+Just google "Java Data Types" for more about this. There's a lot. These are the main ones tho.
+
+Carry on from "L1 - All the Maths"
+https://classroom.udacity.com/courses/ud282/lessons/8193672240/concepts/82145567120923
