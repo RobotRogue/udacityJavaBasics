@@ -1,1 +1,19 @@
 Hello notes!
+
+#L1: Variables and Data Types
+
+Variables - java variables have a name and a value (the name is immutable, the value can change)
+
+Java varaibles have to have an assigned type. Such as INT or STRING, etc. This cannot be changed.
+
+To declare a variable, you can type the following:
+
+  int passengers;
+
+To initialize (set a value for) the variable, type in:
+
+  passengers = 0;
+
+To update the variable (since its initially 0 in this case...), you would:
+
+  passengers = passengers + 5
