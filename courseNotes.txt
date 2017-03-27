@@ -319,3 +319,161 @@ Here's an example of how it is broken down:
 
 For the above: if the boolean is true, the "Its cold!..." will be printed out.
 If the above boolean is false, nothing will be printed out.
+
+
+The ELSE statement is the code equivalent of 'otherwise'.
+
+Here's how it is written:
+
+  boolean isLightGreen = ? ; // true or false?
+
+  is (isLightGreen) {
+    System.out.println("Drive");
+  } else {
+    System.out.println("Stop");
+  }
+
+So for the above if the boolean is:
+True - the codeblock in the "IF" statement would be run
+False - the codeblock in the ELSE statement would be run, and the IF statement codeblock would be untouched.
+
+
+The ELSE IF statement gives you more IF conditions to check against, instead of just IF/ELSE.
+
+The below is an example of how this would look:
+
+  boolean isLightGreen = ? ; // true or false?
+  boolean isLightYellow = ? ; // true or false?
+
+  is (isLightGreen) {
+    System.out.println("Drive");
+  } else-if (isLightYellow) {
+    System.out.println("Slow down");
+  } else {
+    System.out.println("Stop");
+  }
+
+So for the first IF - the boolean is:
+True - the codeblock in the "IF" statement would be run
+False - it would then move to the ELSE IF.
+For the ELSE-IF - the boolean is:
+True - the codeblock in the "ELSE IF" statement would be run, the ELSE would not be run.
+False - the codeblock in the ELSE statement would be run, and the IF and ELSE-IF statement codeblock would be untouched.
+
+
+#Quiz - Multiple Else-IF's
+
+What will the output of this program be?
+
+  boolean passport = false;
+  boolean birthCertificate = true;
+  boolean driversLicense = true;
+
+  if (passport) {
+    System.out.println("A passport is a valid ID.");
+  } else if (birthCertificate) {
+    System.out.println("A birth certificate is a valid ID.");
+  } else if (driversLicense) {
+    System.out.println("A driver's license is a valid ID.");
+  } else {
+    System.out.println("Invalid ID. Your application is denied.");
+  }
+
+My Answer: A drivers license is a valid ID. -- wrong dumbass, its birth cert because that passed first. remember that its evaluated top down.
+
+#Boolean Expressions - boolean values can be assigned also by running tests with comparisons like: 3 < 5 and so on.
+
+  boolean b3 = 3 < 5; // this would eval to true.
+
+Some other operators are:
+  <= less than/equal to
+  >= greater than/equal to
+  != not equal to
+  == is equal to
+
+#Quiz - Evaluate These Expressions:
+
+What boolean value do these expressions evaluate to?
+Given that int x = 20;
+
+  x <=21 // true (20 is less than 21)
+  2*2 > 8 // false (4 is not greater than 8)
+  5 != x // true (5 is not equal to 20)
+  20 == x // true (20 is equal to 20)
+
+#Tickets to the Art Museum: (Practical examples)
+
+General = $10
+Discount = $5 for -- 15 and under, age over 60, student
+
+  int ticketPrice 10;
+  int age = ?;
+  boolean isStudent = ?;
+
+  if (age <= 15) {
+    ticketPrice = 5;
+  } else if (age > 60) {
+    ticketPrice = 5;
+  } else if (isStudent) {
+    ticketPrice = 5;
+  }
+  System.out.println(ticketPrice);
+
+#Logical Operators: How to add multiple conditions to the IF or ELSE IF statements:
+
+Here are the logical operators:
+  && means AND
+  || means OR
+  ! means NOT
+
+An example of this:
+
+  3 < 5 && 2 > 15 // False (3 IS less than 5, but 2 is not greater than 15)
+  3 < 5 || 2 > 15 // True - because at least ONE of them evaluated to true
+  3 > 5 || 2 > 15 // False - because neither of them evaluated to true
+  !(3 < 5) // False - because 3 IS less than 5 which is true, but the ! makes the statement False
+
+So now the museum code can be rewritten to:
+
+  int ticketPrice 10;
+  int age = ?;
+  boolean isStudent = ?;
+
+  if (age <= 15 || age > 60 || isStudent) { // As long as those are all true, it runs the codeblock and applies the discount.
+    ticketPrice = 5;
+  System.out.println(ticketPrice);
+
+#Order of Operations for Logical Operators - yep, there's always a catch!
+
+Just like how math operators (*, /, +, -) have an order that they are evaluated in, ie. multiplication is evaluated before addition, so do logical operators!
+The ! operator will be evaluated first, then &&, and finally ||.
+If you have a bunch of the same operations in an expression, like multiple || combinations, then you just operate from left to right.
+
+To change the order of operations you can surround expressions in parentheses because parentheses will be evaluated before anything else.
+
+So, the order of operations is:
+
+  Parentheses
+  NOT !
+  AND &&
+  OR ||
+
+For the expression:
+
+  !true || false && true // This will have the NOT ! operator evaluated first, so this simplifies to:
+
+  false || false && true // Then the AND && operator will be evaluated. The combination false && true equals false, and the whole expression becomes:
+
+  false || false // Finally the OR || operator will be evaluated, and the whole expression evaluates to false.
+
+#Quiz - True or False?
+
+What boolean value do these expressions evaluate to?
+
+  'a' == 'a' || false || 10 > 50   // True (because at least one is true in the OR, so it will automatically be true)
+  true && 3 > 5   // False
+  true && (3 > 5 || 2 < 10)   // True
+  !(10 > 1)   // False
+
+#Nested IF Statements - You've seen these before!!
+https://classroom.udacity.com/courses/ud282/lessons/8191160506/concepts/be96a642-bb3d-4ce4-9210-ae6701ce5d34
