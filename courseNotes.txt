@@ -210,4 +210,96 @@ What will the output be?
   System.out.println("z = "+z); // -1.0
 
 
-#L1 Summary
+#L1 Project:
+
+Q1: Which has an error?
+A) int x = 5;
+B) double temp = 75.6;
+C) char grade = 'A';
+D) String name = 'Adam';
+
+My Answer: D (Adam should be in " ") -- correct
+
+Q2:
+What value for register will be displayed for the below code?
+  double register = 10.0;
+  register = register + 5;
+  register = register - 2.5;
+  register = register + 10;
+  register = register - 3;
+  System.out.println(register);
+
+My Answer: 19.5 -- correct
+
+Q3: Define an integer var called bankBalance. Init it to a value of 500. Add 250 to it. Subtract 100 from it. Print it.
+
+My Answer:
+  int bankBalance
+  bankBalance = 500;
+  bankBalance = bankBalance + 250;
+  bankBalance = bankBalance - 100;
+  System.out.println(bankBalance);
+
+Q4: What value will result from: System.out.println(2.0 * (5 / 2));
+
+My Answer: 5.0 -- wrong.
+Correct answer: 4.
+When evaluating the arithmetic expression 2.0 * (5 / 2), Java will evaluate the expression inside the parentheses, 5 / 2.
+When dividing two integers, Java will take ignore the remainder, so 5 / 2 evaluates to the integer 2, not the double 2.5.
+This process is called truncation. The second step in evaluating the expression is evaluating 2.0 * 2.
+When multiplying a double and an integer, the result is a double, so the value printed is the double 4.0.
+
+Q5: Write Java code to define an integer variable called day, and a String variable called month.
+Give month and day appropriate values for your birthday.
+
+  int day = 2;
+  String month = "March"
+
+Q6: Write Java code to create a String variable called firstName, define it to be your first name as a String.
+Then define a variable called lastName and define it to be your last name as a String.
+Then define a variable called fullName and set it to be your first name followed by a space followed by your last name.
+Use the existing variables for your first and last name and String concatenation to define fullName.
+Finally, write code to print this text:
+
+  Hello, my name is [full name].
+  There are [number] letters in my name.
+
+Use String concatenation to create the first String to print using the fullName variable, and use the .length() command on
+firstName and lastName to calculate the number of letters.
+
+Note: you can concatenate an integer and a String and the integer will be converted to a String. For example, this expression:
+
+"There are "+ 7 + "days in a week."
+
+will be evaluated as the String:
+
+"There are 7 days in a week."
+
+My Answer:
+  String firstName = "Nelson";
+  String lastName = "Gill";
+  String fullName = firstName + " " + lastName;
+  System.out.println("Hello, my name is " + fullName);
+  System.out.println("There are " + (firstName.length()+lastName.length()) + " letters in my name.")
+
+Example solution code:
+  String firstName = "Asser";
+  String lastName = "Samak";
+  String fullName = firstName + " " + lastName;
+  System.out.println("Hello, my name is " + fullName + ".");
+  int lettersInName = firstName.length() + lastName.length();
+  System.out.println("There are " + lettersInName
+  + " letters in my name.");
+
+Q7: Write Java code to define a double variable called fahrenheit and set it to an initial value between 0 and 100.
+Then, create a double variable called celsius, and calculate its value based on the value of fahrenheit.
+(To convert from Fahrenheit to Celsius, subtract 32, then multiply by 5, then divide by 9.)
+Finally, print the final value of celsius.
+
+  double farenheit = 32.5;
+  double celsius = (farenheit - 32) * 5 / 9;
+  System.out.println(celsius);
+
+
+
+###L2: Flow Control and Conditionals"
