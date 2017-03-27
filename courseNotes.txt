@@ -303,3 +303,19 @@ Finally, print the final value of celsius.
 
 
 ###L2: Flow Control and Conditionals"
+
+#Introducing Flow Control - IF and ELSE and ELSE IF statements
+
+The IF statement is used to test conditions and execute code based on the input/the way the if statement is evaluated.
+
+Here's an example of how it is broken down:
+
+  boolean isCold = ??; // True or False
+
+  if (isCold) {
+    // This code only gets executed if the test condition is true.
+    System.out.println("It's cold! Wear a coat!");
+  }
+
+For the above: if the boolean is true, the "Its cold!..." will be printed out.
+If the above boolean is false, nothing will be printed out.
