@@ -160,3 +160,54 @@ It's good practice to explain what functionality does via commenting, especially
 
 
 #Quiz - The 5th Subject (Calculate the average grade)
+
+- The average grade is the total sum of grades divided by the number of subjects graded.
+- Your friend only knows 4 of 5 grades so far.
+- So in this case, you would just add the 4 grades together, then divide that sum by 4
+
+Here's the approach:
+
+  double maths = 97.5;
+  double english = 98;
+  double science = 83.5;
+  double drama = 75;
+  double sum = maths + english + science + drama;
+  double average = sum / 4;
+  System.out.println(average);
+
+  (results in 88.5)
+
+Now - lets try to figure this out once he knows his final grade:
+
+  /* Your friend seems to be really good at music,
+  he managed to score 96% on his final exam!
+  Now that you know all 5 subject grades,
+  update the average calculation below to calculate the
+  total average of all subjects. */
+
+  double maths=97.5;
+  double english=98;
+  double science=83.5;
+  double drama=75;
+  double music = 96;
+  double sum=maths+english+science+drama+music;
+  int numOfSubjects = 5;
+  double average=sum/numOfSubjects;
+  System.out.println(average);
+
+#Quiz - Track the Values
+
+What will the output be?
+
+  int x = 0;
+  int y = 4;
+  double z = 3;
+  x = x + 2;
+  z = x + y - 7;
+  y = x * 3;
+  System.out.println("x = "+x); // 2
+  System.out.println("y = "+y); // 6
+  System.out.println("z = "+z); // -1.0
+
+
+#L1 Summary
