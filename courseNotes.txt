@@ -121,5 +121,42 @@ boolean - stores true or false, thats it.
 
 Just google "Java Data Types" for more about this. There's a lot. These are the main ones tho.
 
-Carry on from "L1 - All the Maths"
-https://classroom.udacity.com/courses/ud282/lessons/8193672240/concepts/82145567120923
+#Variable Arithmetic - Doing math with code
+
+Here are some various examples:
+
+  int x = 2+3;
+  int y = 4-5;
+  int temp = -20;
+  int days = 7*4;
+  double div = 5/2
+
+Now, there is truncation if you divide numbers and it results in a fraction, if the data type is not double, then it will truncate the remainder in the division.
+This is not always a bad thing, there are times where you want this to happen.
+
+#Casting - To turn an int value into a double:
+
+  int x = 5;
+  int y = 2;
+  double div = x/y;
+  System.out.println(div); //would output 2
+  double.accurate = (double)x/y;
+  System.out.println(accurate); //would output 2.5
+
+
+#Comments! - Best practices when coding
+
+The standard java (and javascript!) syntax for commenting is:
+
+  // single line comment
+
+  /*
+  Multi
+  Line
+  Comment
+  */
+
+It's good practice to explain what functionality does via commenting, especially when other people read your code.
+
+
+#Quiz - The 5th Subject (Calculate the average grade)
