@@ -1,0 +1,301 @@
+Hello notes! https://classroom.udacity.com/courses/ud282/lessons/8192650550/concepts/38f71cca-9f97-4fbd-baee-7c39914b9376
+
+###L1: Variables and Data Types
+
+#Variables - java variables have a name and a value (the name is immutable, the value can change)
+
+Java varaibles have to have an assigned type. Such as INT or STRING, etc. This cannot be changed.
+
+To declare a variable, you can type the following:
+
+  int passengers;
+
+To initialize (set a value for) the variable, type in:
+
+  passengers = 0;
+
+To update the variable (since its initially 0 in this case...), you would:
+
+  passengers = passengers + 5
+
+#Displaying Variables - a way of displaying the value stored inside a variable
+
+One way is to print a line to the console, so using the example variable above,
+it would look like this:
+
+  System.out.println(passengers);
+
+#String Variables - can contain on or many characters (and, its even indexed!)
+
+The syntax would look like this:
+
+  String driver;
+
+And to initialize:
+
+  driver = "Hamish";
+
+Want to know how many letters are in that string? Use this!
+
+  int letters = driver.length();
+  System.out.println(letters);
+
+Want to update every char in the strin to uppercase? Use this!
+
+  String driver;
+  driver = "Hamish";
+  driver = driver.toUpperCase();
+  System.out.println(driver);
+
+#String Concatenation - Joining strings together to build a longer string.
+
+Here's an example of string concatenation:
+
+  String driverFirstName;
+  driverFirstName = "Hamish";
+  String driverLastName;
+  driverLastName = "Blake";
+  String driverFullName = driverFirstName + driverLastName;
+  System.out.println(driverFullName);
+
+The above code is concatenated, not formatted in a friendly way. If you want to do the same, but make it readable (with like, a space in between f/l name) do this:
+
+  String driverFirstName;
+  driverFirstName = "Hamish";
+  String driverLastName;
+  driverLastName = "Blake";
+  String driverFullName = driverFirstName + " " + driverLastName;
+  System.out.println(driverFullName);
+
+You can also do that to integer values:
+
+  int stops;
+  int fare;
+  stops = 0;
+  fare = 0;
+  stops = stops + 1;
+  fare = fare + 5;
+  System.out.println("The bus made $" + fare + " after " + stops + "stops.");
+
+#String Quiz - What would this output?
+
+  String language = "java";
+  String feeling = "Love";
+  feeling = feeling.toLowerCase();
+  language = language.toUpperCase();
+  System.out.println("I " + feeling + " " + language);
+
+Answer: I love JAVA
+
+#Variable Names - rules and regulations
+
+  String driverFirstName;
+  driverFirstName = "Hamish";
+
+When creating a variable name, always follow the lower camel case, like the variable name above.
+
+Variable name rules:
+Try to always use full words and not abbreviations.
+Variable names are case sensitive.
+Start your variable names with a letter.
+You can start with $ or _ but its not advised.
+You cannot have spaces in variable names.
+
+Oh, and the way we were declaring and initializing variables separately above? You can do it all at once, to save typing and codespace, like this:
+
+  String player = "Jack";
+  int stockPrice = 100;
+
+And so on...
+
+#Data Types - More than just int and String...
+
+int is limited to 10 digits.
+Long is limited to 10 digits * 10000000
+Double can store data types with decimal places
+
+String - we know this one
+char - stores a single character only, ie: char answer = 'b'; (Note: This uses single quote only!!)
+
+boolean - stores true or false, thats it.
+
+Just google "Java Data Types" for more about this. There's a lot. These are the main ones tho.
+
+#Variable Arithmetic - Doing math with code
+
+Here are some various examples:
+
+  int x = 2+3;
+  int y = 4-5;
+  int temp = -20;
+  int days = 7*4;
+  double div = 5/2
+
+Now, there is truncation if you divide numbers and it results in a fraction, if the data type is not double, then it will truncate the remainder in the division.
+This is not always a bad thing, there are times where you want this to happen.
+
+#Casting - To turn an int value into a double:
+
+  int x = 5;
+  int y = 2;
+  double div = x/y;
+  System.out.println(div); //would output 2
+  double.accurate = (double)x/y;
+  System.out.println(accurate); //would output 2.5
+
+
+#Comments! - Best practices when coding
+
+The standard java (and javascript!) syntax for commenting is:
+
+  // single line comment
+
+  /*
+  Multi
+  Line
+  Comment
+  */
+
+It's good practice to explain what functionality does via commenting, especially when other people read your code.
+
+
+#Quiz - The 5th Subject (Calculate the average grade)
+
+- The average grade is the total sum of grades divided by the number of subjects graded.
+- Your friend only knows 4 of 5 grades so far.
+- So in this case, you would just add the 4 grades together, then divide that sum by 4
+
+Here's the approach:
+
+  double maths = 97.5;
+  double english = 98;
+  double science = 83.5;
+  double drama = 75;
+  double sum = maths + english + science + drama;
+  double average = sum / 4;
+  System.out.println(average);
+
+  (results in 88.5)
+
+Now - lets try to figure this out once he knows his final grade:
+
+  /* Your friend seems to be really good at music,
+  he managed to score 96% on his final exam!
+  Now that you know all 5 subject grades,
+  update the average calculation below to calculate the
+  total average of all subjects. */
+
+  double maths=97.5;
+  double english=98;
+  double science=83.5;
+  double drama=75;
+  double music = 96;
+  double sum=maths+english+science+drama+music;
+  int numOfSubjects = 5;
+  double average=sum/numOfSubjects;
+  System.out.println(average);
+
+#Quiz - Track the Values
+
+What will the output be?
+
+  int x = 0;
+  int y = 4;
+  double z = 3;
+  x = x + 2;
+  z = x + y - 7;
+  y = x * 3;
+  System.out.println("x = "+x); // 2
+  System.out.println("y = "+y); // 6
+  System.out.println("z = "+z); // -1.0
+
+
+#L1 Project:
+
+Q1: Which has an error?
+A) int x = 5;
+B) double temp = 75.6;
+C) char grade = 'A';
+D) String name = 'Adam';
+
+My Answer: D (Adam should be in " ") -- correct
+
+Q2:
+What value for register will be displayed for the below code?
+  double register = 10.0;
+  register = register + 5;
+  register = register - 2.5;
+  register = register + 10;
+  register = register - 3;
+  System.out.println(register);
+
+My Answer: 19.5 -- correct
+
+Q3: Define an integer var called bankBalance. Init it to a value of 500. Add 250 to it. Subtract 100 from it. Print it.
+
+My Answer:
+  int bankBalance
+  bankBalance = 500;
+  bankBalance = bankBalance + 250;
+  bankBalance = bankBalance - 100;
+  System.out.println(bankBalance);
+
+Q4: What value will result from: System.out.println(2.0 * (5 / 2));
+
+My Answer: 5.0 -- wrong.
+Correct answer: 4.
+When evaluating the arithmetic expression 2.0 * (5 / 2), Java will evaluate the expression inside the parentheses, 5 / 2.
+When dividing two integers, Java will take ignore the remainder, so 5 / 2 evaluates to the integer 2, not the double 2.5.
+This process is called truncation. The second step in evaluating the expression is evaluating 2.0 * 2.
+When multiplying a double and an integer, the result is a double, so the value printed is the double 4.0.
+
+Q5: Write Java code to define an integer variable called day, and a String variable called month.
+Give month and day appropriate values for your birthday.
+
+  int day = 2;
+  String month = "March"
+
+Q6: Write Java code to create a String variable called firstName, define it to be your first name as a String.
+Then define a variable called lastName and define it to be your last name as a String.
+Then define a variable called fullName and set it to be your first name followed by a space followed by your last name.
+Use the existing variables for your first and last name and String concatenation to define fullName.
+Finally, write code to print this text:
+
+  Hello, my name is [full name].
+  There are [number] letters in my name.
+
+Use String concatenation to create the first String to print using the fullName variable, and use the .length() command on
+firstName and lastName to calculate the number of letters.
+
+Note: you can concatenate an integer and a String and the integer will be converted to a String. For example, this expression:
+
+"There are "+ 7 + "days in a week."
+
+will be evaluated as the String:
+
+"There are 7 days in a week."
+
+My Answer:
+  String firstName = "Nelson";
+  String lastName = "Gill";
+  String fullName = firstName + " " + lastName;
+  System.out.println("Hello, my name is " + fullName);
+  System.out.println("There are " + (firstName.length()+lastName.length()) + " letters in my name.")
+
+Example solution code:
+  String firstName = "Asser";
+  String lastName = "Samak";
+  String fullName = firstName + " " + lastName;
+  System.out.println("Hello, my name is " + fullName + ".");
+  int lettersInName = firstName.length() + lastName.length();
+  System.out.println("There are " + lettersInName
+  + " letters in my name.");
+
+Q7: Write Java code to define a double variable called fahrenheit and set it to an initial value between 0 and 100.
+Then, create a double variable called celsius, and calculate its value based on the value of fahrenheit.
+(To convert from Fahrenheit to Celsius, subtract 32, then multiply by 5, then divide by 9.)
+Finally, print the final value of celsius.
+
+  double farenheit = 32.5;
+  double celsius = (farenheit - 32) * 5 / 9;
+  System.out.println(celsius);
