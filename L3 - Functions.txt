@@ -1,3 +1,117 @@
 Hello notes! https://classroom.udacity.com/courses/ud282/lessons/8192650550/concepts/38f71cca-9f97-4fbd-baee-7c39914b9376
 
 ###L3 Functions
+
+#What is a function?
+A Function lets you create code so it can be reused or used by other classes and so on.
+
+#Function Definition - Contains the code that a function executes.
+
+#Function Call - Executing the code in the function definition.
+
+#Function Definition Example + Syntax:
+Let's write a function (definition) to print the chorus for 'Heart of Glass':
+
+  public void chorus () {
+    System.out.println("Once I had a love and it was a gas");
+    System.out.println("Soon turned out had a heart of glass");
+    System.out.println("Seemed like the real thing, only to find");
+    System.out.println("Mucho mistrust, love's gone behind");
+  }
+
+public = access modifier - anyone can access this function. (more later)
+void = return type - means it doesn't return a value.
+chorus = function name - when you call the function, you call it by this name.
+the () after chorus = where any parameters are made to be passed into the function.
+the {} = the codeblock of the function
+
+#Function Call Example:
+To call the function we created above, we simply have to type this:
+
+  chorus();
+
+#Quiz - Play Music
+
+Define a function called playMusic() that prints out:
+We're given a boolean playButton;
+"Music is playing" (when playButton = true)
+"Music is paused" (when playButton is false)
+
+My Answer:
+  public void playMusic () {
+      if (playButton) {
+          System.out.println("Music is playing");
+      } else {
+          System.out.println("Music is paused");
+      }
+  }
+
+#Parameters and Arguments
+Earlier when we saw a function definition - after the function name we saw the empty () - this is
+where we would define parameters.
+
+Parameters are essentially variables that we can pass into the function for use by the funciton.
+
+Example:
+
+  public void greeting (String location) {
+    System.out.println("Hello " + location);
+  }
+
+In the above case, wne you call the function, you would assign a value to the location variable so
+that the function can use it, like this:
+
+  greeting("New York");
+
+Would output the following:
+
+  Hello New York
+
+#Quiz - Weather Arguments
+
+Given this code...
+
+  public void weatherInterpreter (int temperature) {
+    if (temperature > 30) {
+      System.out.println("It's hot outside!");
+    } else if (temperature < 5) {
+      System.out.println("Brr, consider wearing a jacket.");
+    } else {
+      System.out.println("Not too hot, not too cold.");
+    }
+  }
+
+What will output for the following calls?
+
+  weatherInterpreter(4);
+  weatherInterpreter(32);
+
+My Answer:
+Brr, consider wearing a jacket. -- correct
+It's hot outside! -- correct
+
+#Variable Temperature
+When we call the funciton, instead of passing in a direct int value, we can pass in variables too, like this:
+
+  int degreesC = 15;
+
+  weatherInterpreter(degreesC)
+
+Notice, we defined the variable degreesC, and set a value of 15.
+Then we called the function, and passed in the parameter of the variable degreesC.
+It took that, checked the value of the variable, and because it was an int, used the value and ran the function.
+
+#Quiz - Rollercoaster Parameter
+
+This function checks eligibility to ride a rollercoaster, and requires that a person input their height in cm.
+'admission(130.5)' is a valid call. Fill in the parameter to complete it with valid data.
+
+  public void admission (double height) {
+    if (height > 120) {
+      System.out.println("Ur good to ride");
+    } else {
+      System.out.println("Get taller shorty");
+    }
+  }
+
+#Multiple Parameters Intro
