@@ -2,7 +2,7 @@ Hello notes! https://classroom.udacity.com/courses/ud282/lessons/8192650550/conc
 
 ###L3 Functions
 
-#What is a function?
+#What is a function? (aka: method)
 A Function lets you create code so it can be reused or used by other classes and so on.
 
 #Function Definition - Contains the code that a function executes.
@@ -30,8 +30,8 @@ To call the function we created above, we simply have to type this:
 
   chorus();
 
-#Quiz - Play Music
 
+#Quiz - Play Music
 Define a function called playMusic() that prints out:
 We're given a boolean playButton;
 "Music is playing" (when playButton = true)
@@ -45,6 +45,7 @@ My Answer:
           System.out.println("Music is paused");
       }
   }
+
 
 #Parameters and Arguments
 Earlier when we saw a function definition - after the function name we saw the empty () - this is
@@ -90,6 +91,7 @@ My Answer:
 Brr, consider wearing a jacket. -- correct
 It's hot outside! -- correct
 
+
 #Variable Temperature
 When we call the funciton, instead of passing in a direct int value, we can pass in variables too, like this:
 
@@ -114,8 +116,8 @@ This function checks eligibility to ride a rollercoaster, and requires that a pe
     }
   }
 
-#Multiple Parameters
 
+#Multiple Parameters
 Let's make a function for printing that takes in height and width, and a boolean for color.
 
   public void printPhoto (int width, int height, boolean inColor) {
@@ -135,16 +137,16 @@ And to call this function:
 HOWEVER! The ORDER of the parameters is very important - because we have to define data types for the
 parameters, so if you call them in the wrong order, it might mismatch the data type and error out.
 
-#Argument Order
 
+#Argument Order
 Taking the above code, what happens if you call the same function, but get the parameters in the wrong order?
 
   printPhoto(10, 20, false); -- this will work just fine.
   printPhoto(20, 10, false); -- this will make the photo look weird.
   printPhoto(20, false, 10); -- this will error out (because 2 of the types mismatch)
 
-#Quiz - Liking Photos
 
+#Quiz - Liking Photos
 Write a function call for the function likePhoto:
 
   public void likePhoto (int currentLikes, String comment, boolean like) {
@@ -157,8 +159,8 @@ Write a function call for the function likePhoto:
 
 My Answer: likePhoto(5, "Nice pic!", true); -- corrent
 
-#Return Values
 
+#Return Values
 Functions can take in data via parameters, but they can also return a value as well.
 
 The syntax for a function that does return a value is:
@@ -199,6 +201,7 @@ Kind of confusing, but that's programming right?
 
 TODO: Revisit the "Return Photo Likes" section again.
 
+
 #Quiz - What's Missing?
 This code won't return the string we want. Can you identify whats wrong with this code?
 
@@ -234,4 +237,298 @@ My Answer:
     return change;
   }
 
+
 #Random Numbers:
+Lets write a function that gives us a random number, using the Math.random(); builtin function.
+Quick note, Math.random returns a range of decimal numbers from 0 to 0.999... etc.
+
+Let's break down some code here:
+
+  double randomNumber = Math.random() * 10; // the * 10 makes the fractional number more readable.
+
+  int randomInt = (int) randomNumber; // Using "casting" to change that double into an int.
+  // (Casting is turning one variable type into another)
+
+
+#Rolling Dice
+So now that we know how to get random numbers, and convert them into whole (int) numbers from 0-9,
+this gives us some of the tools we need to make a 'dice roll' function.
+
+  public int rollDice () {
+    double randomNumber = Math.random() * 6; // this gives us a range of 0-5.9999
+    randomNumber = randomNumber + 1; // this changes the range to 1-6.99999 (1-6)
+    int randomInt = (int) randomNumber; // this changes the double value to an int
+    return randomInt;
+  }
+
+Let's call this to test it, and let's also store the output into a new variable (for giggles)
+
+  int roll1 = rollDice();
+  int roll2 = rollDice();
+
+And let's see what that resulted in:
+
+  System.out.println("First roll was " + roll1 + " and the second roll was " + roll2);
+
+
+#Quiz - Improved Dice Roll
+Can this function work for 8 or 10-sided dice?
+
+  public int rollDice () {
+    double randomNumber = Math.random() * 6;
+    randomNumber = randomNumber + 1;
+    int randomInt = (int) randomNumber;
+    return randomInt;
+  }
+
+My Answer: (It was basically correct except for my notes)
+
+  public int rollDice (int sides) { // Remember to specify the data type of the parameter!!
+    double randomNumber = Math.random() * sides;
+    randomNumber = randomNumber + 1;
+    int randomInt = (int) randomNumber;
+    return randomInt;
+  }
+
+
+#Java Documentation
+Lets you find out about built-in functions and how to use them.
+This includes: function descriptions, variable types, how to use... etc.
+https://docs.oracle.com/javase/8/docs/api/java/lang/package-summary.html
+
+
+#Quiz - Read this doc!
+What will the function call "Math.max(20, 15);" output?
+Fill in the data type, and the specific falue the function call would output.
+
+https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#max-int-int-
+
+a) int
+b) 20
+
+
+#Importance of Documentation - Using Comments!
+
+Generally you want to describe the function in the same way as on the Oracle Java Docs
+Explain the inputs, data types, roughyl what the function does, what it returns,  syntax and use.
+
+Here's an example of a pretty good comment:
+
+  /**
+   * General description of the function
+   *
+   * @param a first input parameter, named a
+   * @param b second parameter, named b
+   *
+   * @return description of returned value (if applicable)
+   */
+
+Here's an example using our rollDice function we made:
+
+  /**
+   * This dice function simulates a random dice roll
+   * for a dice with a given number of sides
+   *
+   * @param sides - the number of sides of the dice you want to roll
+   *
+   * @return a random number within the range of the sides, as an int
+   */
+
+
+#Quiz - Complete this doc
+Here is the Java doc comment that produces the incomplete document shown above:
+
+    /*
+    * Returns the absolute value of an int value.
+    * If the argument is not negative, the argument
+    * is returned. If the argument is negative, the negation of the argument is returned.
+    *
+    * @param a - the argument whose absolute value is to be determined
+    *
+    * @return the absolute value of the argument.
+    */
+
+
+#L3 Project:
+
+Q1) In the function signature below, what is the return type?
+
+  public float squareRoot(int x)
+
+A. public
+B. float -- my answer (correct)
+C. squareRoot
+D. int
+
+Q2) Write the signature of a function called isPrime().
+The access modifier should be public, the return type should be boolean, and it should take a single integer parameter.
+
+My Answer: (correct)
+  public boolean isPrime (int checkMe) {
+    // Stuff
+  }
+
+Q3) Which of the following function signatures has an error?
+
+A. public getAccountBalanace(long accountNumber)
+B. public void displayInTextBox(String string)
+C. public int roundToNearestInt(double x)
+D. public double getTemperature()
+
+My Answer: A (missing the return type) -- correct
+
+Q4) Write a Java function called absoluteValue().
+The access modifier should be public, it should have a return type of double,
+and it should take one double parameter as input. If the double parameter is less than 0,
+it should return that number negated. Otherwise, it should return the parameter unchanged.
+
+  public double absoluteValue (double x) {
+    if (x < 0) {
+      x = x * -1; // not needed
+      return x; // just return -x
+    } else {
+      return x;
+    }
+  }
+
+(I got most of it except for the commented areas)
+
+Q5) Write a Java function named calculateTip().
+The access modifier should be public, it should have a return type of double,
+and it should take as input a double parameter representing the cost of a meal at a restaurant.
+And finally, it should return a double equal to 15% of the cost parameter
+
+  public double calculateTip (double mealCost) {
+    return mealCost * 0.15;
+  }
+
+Mine was wrong... the solution is:
+
+  public double calculateTip (double mealCost) {
+    double tip = mealCost * 0.15;
+    return tip;
+  }
+
+Q6) Write a Java function called nametagText().
+The access modifier should be public, the return type should be String,
+and it should take a String parameter called name.
+In the body of the function, return the String “Hello, my name is ” with
+the name parameter added to the end. (Hint: use String concatenation.)
+
+  public String nametagText(String name) {
+    String greeting = ("Hello, my name is " + name);
+    return greeting;
+  }
+
+Their solution:
+
+  public String nametagText(String name) {
+    String nametagText = ("Hello, my name is " + name);
+    return nametagText;
+  }
+
+Q7) Define two functions. The first should be called fahrenheitToCelsius().
+It should be a public function with return type double that takes a double argument that
+represents a temperature in Fahrenheit degrees.
+It should return the equivalent temperature in Celsius degrees.
+(To convert from Fahrenheit to Celsius, use the formula C = (F − 32) × 5/9.)
+
+Next, define a function called printTemperature(). It should be public, it should have a
+return type of void, and it should take a double parameter that represents a temperature in
+Fahrenheit degrees.
+This function should print “F: ” followed by the Fahrenheit parameter, then “C: ” followed by
+the equivalent value in Celsius degrees. Use the first function you defined to calculate the
+appropriate Celsius value inside the second function.
+
+Bonus challenge: write javadoc comments for both functions.
+
+My Answer:
+
+  // double tempInFarenheit = 64.5;
+
+  public double farenheitToCelsius (double tempInFarenheit) {
+    double tempInCelsius = (tempInFarenheit - 32) * 5/9;
+    return tempInCelsius;
+  }
+
+  public void printTemperature (double tempInCelsius) {
+    System.out.println("F: " + tempInFarenheit + "C: " + tempInCelsius);
+  }
+
+Their Solution:
+
+  public double fahrenheitToCelsius(double fahrenheit) {
+    return (fahrenheit - 32) * 5 / 9;
+  }
+
+  public void printTemperature(double fahrenheit) {
+    System.out.println("F: " + fahrenheit);
+    System.out.println("C: " + fahrenheitToCelsius(fahrenheit));
+  }
+
+In line 464, you specify the F value in the parameter
+So in line 466, they called the fToC method and passed in the farenheit value (that was passed in, in the parameter)
+
+Q8) Define a function called monopolyRoll().
+This function provides a random result based on the dice-rolling rules for the board game Monopoly.
+In Monopoly, players roll two six-sided dice to determine their move.
+If they roll the same value on both dice, this is called “rolling doubles,” and it means they go again.
+In our simplified version, the dice-roll function should behave like this:
+
+  1. Generate two random integers in the 1 to 6 range.
+  2. If the numbers are not the same, return the sum.
+  3. If the numbers are the same, generate two more random integers in the 1 to 6 range, and return the sum of all 4 numbers.
+
+Hint: to make your code neater, you can define a second function that generates a random integer in the 1 to 6 range
+(or in the 1 to x range based on a parameter) so that you do not need to keep repeating that code.
+
+public int randomRoll() {
+  double randomNumber = Math.random() * 6;
+  randomNumber = randomNumber + 1;
+  int randomInt = (int) randomNumber;
+  return randomInt;
+}
+
+public int monopolyRoll() {
+  int roll1 = randomRoll();
+  int roll2 = randomRoll();
+
+  if (roll1 != roll2) {
+    return roll1 + roll2;
+  } else {
+    int roll3 = randomRoll();
+    int roll4 = randomRoll();
+    return roll1 + roll2 + roll3 + roll4;
+  }
+}
+
+
+Example solution code:
+  /**
+  * Returns a random integer simulating a dice roll.
+  * @param sides Number of sides on the virtual die being rolled.
+  * @return random number in the range of 1 to sides.
+  */
+
+  public int diceRoll(int sides) {
+    double randomNumber = Math.random() * sides;
+    randomNumber = randomNumber + 1;
+    return (int) randomNumber;
+  }
+
+  public int monopolyRoll() {
+    int roll1 = diceRoll(6);
+    int roll2 = diceRoll(6);
+    int total = roll1 + roll2;
+
+    if (roll1 == roll2) {
+      int roll3 = diceRoll(6);
+      int roll4 = diceRoll(6);
+      total = total + roll3 + roll4;
+    }
+    return total;
+  }
+
+Mine is actually correct, mine is just the long-form way of doing the same as their solution.
+
+And that's that.
