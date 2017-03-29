@@ -114,4 +114,124 @@ This function checks eligibility to ride a rollercoaster, and requires that a pe
     }
   }
 
-#Multiple Parameters Intro
+#Multiple Parameters
+
+Let's make a function for printing that takes in height and width, and a boolean for color.
+
+  public void printPhoto (int width, int height, boolean inColor) {
+    System.out.println("Width = " + width + " cm");
+    System.out.println("Height = " + height + " cm");
+    if (inColor) {
+      System.out.println("Print is full color.");
+    } else {
+      System.out.println("Print is black and white");
+    }
+  }
+
+And to call this function:
+
+  printPhoto(30, 40, true);
+
+HOWEVER! The ORDER of the parameters is very important - because we have to define data types for the
+parameters, so if you call them in the wrong order, it might mismatch the data type and error out.
+
+#Argument Order
+
+Taking the above code, what happens if you call the same function, but get the parameters in the wrong order?
+
+  printPhoto(10, 20, false); -- this will work just fine.
+  printPhoto(20, 10, false); -- this will make the photo look weird.
+  printPhoto(20, false, 10); -- this will error out (because 2 of the types mismatch)
+
+#Quiz - Liking Photos
+
+Write a function call for the function likePhoto:
+
+  public void likePhoto (int currentLikes, String comment, boolean like) {
+    System.out.println("Feedback: " + comment);
+    if (like) {
+      currentLikes = currentLikes + 1;
+    }
+    System.out.println("Number of likes: " + currentLikes);
+  }
+
+My Answer: likePhoto(5, "Nice pic!", true); -- corrent
+
+#Return Values
+
+Functions can take in data via parameters, but they can also return a value as well.
+
+The syntax for a function that does return a value is:
+
+  public String functionName () {
+    return;
+  }
+
+Basically, we specify what the data type of the return will be - which makes the function return something.
+
+Here's an example:
+
+  public int likePhoto (int currentLikes, String comment, boolean like) {
+    System.out.println("Feedback: " + comment);
+    if (like) {
+      currentLikes = currentLikes + 1;
+    }
+    System.out.println("Number of likes: " + currentLikes);
+    return currentLikes;
+  }
+
+So we can now consume the currentLikes value outside of the function, and we can even assign that return to a new
+varable value - kind of like this:
+
+  int returnedLikes = likePhoto(0, "Good stuff", true);
+
+The above would call the likePhoto function, pass it some parameters, and the output would be stored in returnedLikes.
+
+Thast would be handy since you can then pass that back into the function as a parameter so it will keep track of the
+returnedLikes value autmatically... like this:
+
+  likePhoto(returnedLikes, "I like this", true);
+
+So that's calling the likePhoto function, passing it a int variable of returnedLikes, a comment, and a boolean.
+Then the function uses the returnedLikes value to store the currentLikes and increase when needed.
+
+Kind of confusing, but that's programming right?
+
+TODO: Revisit the "Return Photo Likes" section again.
+
+#Quiz - What's Missing?
+This code won't return the string we want. Can you identify whats wrong with this code?
+
+  public void admission (double height) {
+    String passText;
+    // checks height requirements
+    if (height > 120) {
+      passText = "You pass.";
+    } else {
+      passText = "You too short.";
+    }
+    return passText;
+  }
+
+a) passText isn't a string?
+b) Wrong return type?
+c) Wrong return statement?
+d) Nothing is wrong?
+
+My Answer: b) Wrong return type (void won't return anything) -- correct
+
+#Quiz - Making change
+This program should calculate the correct change.
+The change is the difference of the money paid vs the item cost.
+
+Write a function that returns the correct change:
+(Remember to return a value you need 1) a return type and 2) a return statement)
+
+My Answer:
+
+  public double makeChange (double itemCost, double dollarsProvided) {
+    double change = dollarsProvided - itemCost;
+    return change;
+  }
+
+#Random Numbers:
