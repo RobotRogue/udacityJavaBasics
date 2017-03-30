@@ -1,3 +1,42 @@
 Hello notes! https://classroom.udacity.com/courses/ud282/lessons/8192650550/concepts/38f71cca-9f97-4fbd-baee-7c39914b9376
 
 ###L4 Loops
+
+#Alarm
+Say you wanted to create an alarm that continues to go off until it is stopped.
+
+Here are some functions that help that happen:
+
+  public void beep () {
+    // Makes a single beep sound
+  }
+
+  public boolean checkAlarm () {
+    // Returns true if the alarm is on, false if it is off
+  }
+
+  public void alarm () {
+    // Keep beeping until it is snoozed
+    boolean on = checkAlarm();
+    if (on) {
+      beep();
+      on = checkAlarm(); // but this only runs once... how do we get it to continually check?
+    }
+  }
+
+In this case we can use a while loop. ;)
+
+#While Loops
+while loops allow you to repeat an if condition over and over for as long as that condition remains true, hence the name while!
+
+To create a while loop, simply follow the same steps like an if condition, but replace the if with a while to look something like this:
+
+  while(isRaining){
+     System.out.println("It's still raining outside!");
+     isRaining = checkWeather();
+  }
+  System.out.println("Now it's not raining anymore");
+
+This code block above will continue to print the message "It's still raining outside!" for as long as the boolean isRaining is true, once the function checkWeather() returns false isRaining will no longer be true, so the while loop would end and the message "Now it's not raining anymore" will be displayed.
+
+Unlike if blocks however, while loops don't have else blocks, they are simply like a repeated if block that would only end when the condition becomes false.
