@@ -2,6 +2,25 @@ Hello notes! https://classroom.udacity.com/courses/ud282/lessons/8192650550/conc
 
 ###L4 Loops
 
+#Loop Types:
+There are 3 loop types in Java:
+
+1) While loop - A while loop statement in Java programming language repeatedly executes a target statement as long as a given condition is true.
+  while(Boolean_expression) {
+     // Statements
+  }
+
+2) For loop - A for loop is a repetition control structure that allows you to efficiently write a loop that needs to be executed a specific number of times.
+  for(initialization; Boolean_expression; update) {
+     // Statements
+  }
+
+3) Do-While loop - A do...while loop is similar to a while loop, except that a do...while loop is guaranteed to execute at least one time.
+  do {
+     // Statements
+  }while(Boolean_expression);
+
+
 #Alarm
 Say you wanted to create an alarm that continues to go off until it is stopped.
 
@@ -26,6 +45,7 @@ Here are some functions that help that happen:
 
 In this case we can use a while loop. ;)
 
+
 #While Loops
 while loops allow you to repeat an if condition over and over for as long as that condition remains true, hence the name while!
 
@@ -37,6 +57,8 @@ To create a while loop, simply follow the same steps like an if condition, but r
   }
   System.out.println("Now it's not raining anymore");
 
-This code block above will continue to print the message "It's still raining outside!" for as long as the boolean isRaining is true, once the function checkWeather() returns false isRaining will no longer be true, so the while loop would end and the message "Now it's not raining anymore" will be displayed.
+This code block above will continue to print the message "It's still raining outside!" for
+as long as the boolean isRaining is true, once the function checkWeather() returns false
+isRaining will no longer be true, so the while loop would end and the message "Now it's not raining anymore" will be displayed.
 
 Unlike if blocks however, while loops don't have else blocks, they are simply like a repeated if block that would only end when the condition becomes false.
