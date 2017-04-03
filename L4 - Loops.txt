@@ -62,3 +62,18 @@ as long as the boolean isRaining is true, once the function checkWeather() retur
 isRaining will no longer be true, so the while loop would end and the message "Now it's not raining anymore" will be displayed.
 
 Unlike if blocks however, while loops don't have else blocks, they are simply like a repeated if block that would only end when the condition becomes false.
+
+
+#Quiz - Googol
+Can you write a while loop that would print out a googol? (1 with 100 zeroes behind it?)
+
+  String googol = "1"; // Creates a string variable.
+  int len = googol.length(); // Creates a length of string variable.
+
+  while (len < 101) { // While length of string is less than 101... do what is in codeblock.
+    googol = googol + "0"; // Adds a "0" to the end of the string.
+    len = googol.length(); // Reads the length of the new string, and passes that value to the loop.
+  }
+
+
+#Yahtzee! - It's a Match!
