@@ -77,3 +77,24 @@ Can you write a while loop that would print out a googol? (1 with 100 zeroes beh
 
 
 #Yahtzee! - It's a Match!
+The problem we are trying to solve is to count the number of times we need to roll 5 dice to get a Yahtzee.
+Instead we should first simplify the problem down to rolling two dice and going from there.
+
+So to simplify, start with writing code that will roll two dice and compare if they are equal or not.
+Once you have that code, you can then add more dice to the code, to solve the end problem.
+
+Here is code for rolling two dice:
+
+  public int keeprolling () {
+    int dice1 = rollDice();
+    int dice2 = rollDice();
+    int count = 1;
+
+    while (!(dice1 == dice2)) {
+      // We need to re-roll
+      dice1 = rollDice();
+      dice2 = rollDice();
+      count = count + 1;
+    }
+    return count;
+  }
