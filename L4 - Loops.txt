@@ -86,15 +86,94 @@ Once you have that code, you can then add more dice to the code, to solve the en
 Here is code for rolling two dice:
 
   public int keeprolling () {
-    int dice1 = rollDice();
-    int dice2 = rollDice();
-    int count = 1;
+    int dice1 = rollDice(); // stores the value of first dice roll
+    int dice2 = rollDice(); // stores the value of the second dice roll
+    int count = 1; // Sets a counter to keep track of the number of rolls
 
-    while (!(dice1 == dice2)) {
+    while (!(dice1 == dice2)) { // while the value of dice1 and dice2 is NOT equal, do this
       // We need to re-roll
-      dice1 = rollDice();
-      dice2 = rollDice();
-      count = count + 1;
+      dice1 = rollDice(); // stores the value of first dice roll
+      dice2 = rollDice(); // stores the value of second dice roll
+      count = count + 1; // Increments counter to keep track of retries
     }
-    return count;
+    return count; // When they finally match, return the number of tries it took.
   }
+
+So the above handles 2 dice. Starting simple, but we wanted 6... let's keep going.
+
+
+#Quiz; Three Dice
+With the above code, we were able to get the values of two dicerolls and compare their equality.
+Now how would we handle if there needed to be a third dice?
+
+  public int keeprolling () {
+    int dice1 = rollDice(); // stores the value of first dice roll
+    int dice2 = rollDice(); // stores the value of the second dice roll
+    int dice3 = rollDice(); // stores the value of the third dice roll
+    int count = 1; // Sets a counter to keep track of the number of rolls
+
+    while (!(dice1 == dice2 == dice3)) { // THIS WONT WORK - SO HOW DO WE GET IT TO WORK?
+      // We need to re-roll
+      dice1 = rollDice(); // stores the value of first dice roll
+      dice2 = rollDice(); // stores the value of second dice roll
+      dice3 = rollDice(); // stores the value of third dice roll
+      count = count + 1; // Increments counter to keep track of retries
+    }
+    return count; // When they finally match, return the number of tries it took.
+  }
+
+What should the conditional statement be instead to get it to work?
+
+My Answer: !(dice1 == dice 2 && dice2 == dice3)
+
+But how does that work?
+
+It will compare the values of dice1 to dice2, and compare the values of dice2 to dice3
+If dice1, dice2 AND dice2, dice3 are all equal, then the condition would equate to true... but its !(true) - which evaluates to false, exiting the loop.
+If any of them are a mismatch, any of them will cause it to equate to false, and the !(false) equates to true, going into the loop.
+
+That one takes a bit to wrap your head around, go over it a few times to make sure you understand why that would work.
+
+And for funsies, also try to figure out why these would NOT work:
+
+  while (dice1 == dice2 || dice2 == dice3)
+  while (dice1 && dice2 && dice2 == dice3)
+  while (dice1 != dice2 && dice2 != dice3)
+
+Easiest way to figure out why is to try writing out the examples, with some true and false test values.
+
+
+Quiz: Roll A Yahtzee
+You should modify the function int keepRolling() by adding code to check for a 5 dice match (Yahtzee) rather than just 3 dice.
+
+To do so, follow these steps:
+
+Add 2 new integer variables dice4 and dice5 and initialize them to the function call rollDice()
+Then inside the while loop, make sure you reset the values of those integers to another call of rollDice() each.
+Finally, update the while loop condition to check for the mismatch of all 5 dice.
+Remember you can simply check that all dice match and surround that with the ! not operator like with the existing 3 dice implementation.
+
+  public int keepRolling() {
+      int dice1 = rollDice();
+      int dice2 = rollDice();
+      int dice3 = rollDice();
+      int dice4 = rollDice();
+      int dice5 = rollDice();
+      int count = 1;
+
+      while (!(dice1 == dice2 && dice2 == dice3 && dice3 == dice4 && dice4 == dice5)) {
+          //we need to re-roll
+          dice1 = rollDice();
+          dice2 = rollDice();
+          dice3 = rollDice();
+          dice4 = rollDice();
+          dice5 = rollDice();
+          count = count + 1;
+      }
+      return count;
+  }
+
+My Answer: (completed code above) -- correct.
+
+
+#Warning Alert
