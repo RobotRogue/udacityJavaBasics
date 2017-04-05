@@ -161,7 +161,8 @@ Remember you can simply check that all dice match and surround that with the ! n
       int dice5 = rollDice();
       int count = 1;
 
-      while (!(dice1 == dice2 && dice2 == dice3 && dice3 == dice4 && dice4 == dice5)) {
+      while (!(dice1 == dice2 && dice2 == dice3 && 
+               dice3 == dice4 && dice4 == dice5)) {
           //we need to re-roll
           dice1 = rollDice();
           dice2 = rollDice();
