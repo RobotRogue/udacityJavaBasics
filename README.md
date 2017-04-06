@@ -9,7 +9,7 @@ Course URL: https://www.udacity.com/course/java-programming-basics--ud282
 ### Course Lesson Breakdown:
 
 * L1 - Variables and Data Types
-* L2 - Folow Control and Conditionals
+* L2 - Flow Control and Conditionals
 * L3 - Functions
 * L4 - Loops (For and While and...)
 * L5 - IntelliJ and Debugging
