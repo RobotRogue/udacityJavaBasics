@@ -1,4 +1,4 @@
-# udacityJavaBasics
+# Udacity Java Basics:
 
 ### Course notes and code for Udacity's "Java Programming Basics" class.
 
