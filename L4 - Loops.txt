@@ -161,7 +161,7 @@ Remember you can simply check that all dice match and surround that with the ! n
       int dice5 = rollDice();
       int count = 1;
 
-      while (!(dice1 == dice2 && dice2 == dice3 && 
+      while (!(dice1 == dice2 && dice2 == dice3 &&
                dice3 == dice4 && dice4 == dice5)) {
           //we need to re-roll
           dice1 = rollDice();
@@ -178,3 +178,20 @@ My Answer: (completed code above) -- correct.
 
 
 #Warning Alert
+So lets write an alarm that goes off for a set number of times, then stops... using a while loop:
+
+  public void raiseAlarm (int numOfWarnings) {
+    int i = 1; // referred to as the loop counter.
+    while (i <= numOfWarnings) { // loop condition (or 'conditional statement')
+      System.out.println("Warning");
+      i = i + 1; // Called the loop increment, can also be written as i++
+    }
+  }
+
+When you call this function with: raiseAlarm(5)...
+
+That sets the 'raiseAlarm' variable to 5.
+The counter is 1. So the conditional compares the 1 to the 5 and runs the loop until its no longer true.
+
+
+#For Loops - Enter the Dragon!
