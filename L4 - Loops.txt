@@ -195,3 +195,12 @@ The counter is 1. So the conditional compares the 1 to the 5 and runs the loop u
 
 
 #For Loops - Enter the Dragon!
+Using the while loop example from above, we can isolate the 3 elements needed to loop over some code:
+1) The loop counter (int i = 1;)
+2) The loop condition (i <= numOfWarnings)
+3) The loop increment (i = i + 1) -or- (i++)
+
+Now, this can be handled in a while loop, sure, but maintaining the loop, and readability are difficult to deal with.
+
+This is where the FOR loop shines. It includes the above 3 key loop elements, all wrapped in one nice line of code.
+Here's an example:
