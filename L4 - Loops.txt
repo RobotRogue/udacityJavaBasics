@@ -204,3 +204,39 @@ Now, this can be handled in a while loop, sure, but maintaining the loop, and re
 
 This is where the FOR loop shines. It includes the above 3 key loop elements, all wrapped in one nice line of code.
 Here's an example:
+
+  public void raiseAlarm (int numOfWarnings) {
+    for (int i = 1; i <= numOfWarnings; i++) {
+      // Your codeblock to do things
+      System.out.println("Warning");
+    }
+  }
+
+This houses all 3 of the needed elements for a loop inside the one set of parentheses.
+
+
+#Loop Counters
+You can also use the loop counter inside the codeblock (for example, you want to display what the current count is)
+Here's an example:
+
+  public void raiseAlarm (int numOfWarnings) {
+    for (int i = 1; i <= numOfWarnings; i++) {
+      // Your codeblock to do things
+      System.out.println("Warning #" + i);
+    }
+  }
+
+  raiseAlarm(5); // call the function with this
+
+Output would be:
+
+  Warning #1
+  Warning #2
+  Warning #3
+  Warning #4
+  Warning #5
+
+Be careful though, make sure you don't change the value of i inside the codeblock or you might break the loop / create an endless (infinite) loop.
+
+
+#Count The Blocks
