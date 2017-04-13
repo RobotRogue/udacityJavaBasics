@@ -270,3 +270,70 @@ The CORRECT Answer:
 
 
 #Not Just Increment
+You don't have to start the counter with 0 or 1, you can do a lot more with it.
+In this example, we will use it to Add numbers at each step and return the total sum:
+
+  /* Adds the numbers 15 + 16 + ... + 20
+     Returns the total sum of the addition */
+
+  public int addNumbers () {
+    int sum = 0;
+    for (int i = 15; i <= 20; 1++) {
+      sum = sum + i;
+    }
+    return sum;
+  }
+
+So it adds 15, to 16, then to 17, and so on up to (and including) 20 -- stores the result in the variable SUM, and then returns the variable.
+
+Another alternative is to count loops down instead. To do that, you can update the increment from i++ to i-- instead:
+
+  for (int i = 3; i >= 1; i--) {
+    // We also have to change the loop counter to start from the higher number
+    // We have to change the loop condition to go to the lower number
+    // We have to change the increment to a decrement
+  }
+
+
+#Step Faster
+Here's a comparison between a while and a for loop:
+
+// While Loop:
+  int i = 0;
+  while (i <= 10) {
+    System.out.println(i);
+    i++
+  }
+
+// FOR Loop:
+  for (int j = 0; j <= 10; j++) {
+    System.out.println(j);
+  }
+
+There are shorthand ways to write the increment and decrement - but we only saw how to do it by a difference of 1.
+Lucky for us, we don't just have to use 1, you can shorthand to any value (and not just addition and subtraction) - shown below:
+
+  Longhand: i = i + 5;
+  Shorthand: i += 5;
+
+  Longhand: j = j-6;
+  Shorthand: j -= 6;
+
+  Longhand: k = k * 3;
+  Shorthand: k *= 3;
+
+  Longhand: l = l / 2;
+  Shorthand: l /= 2;
+
+And here's a practical use for it - say you only want to display even numbers in a counter:
+
+  public void evenNumbers () {
+    for (int i = 2; i <= 10; i += 2) {
+      System.out.println(i);
+    }
+  }
+
+The above will increment each step by 2, which will cause only even values to display (because the counter also started at an even value)
+
+
+#Break
