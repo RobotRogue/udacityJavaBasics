@@ -337,3 +337,75 @@ The above will increment each step by 2, which will cause only even values to di
 
 
 #Break
+Sometimes you will want to end a loop before it completes all the iterations of the counter. Here's an example:
+
+  // WiFi Search
+
+  public void searchWiFi () {
+    for (int i = 1; i <= 10; i++) {
+      boolean wifiAvailable = checkWifi();
+      if (wifiAvailable) {
+        System.out.println("WiFi Found!");
+        break; // break will cause exit the loop entirely. (Works in for and while loops)
+      }
+    }
+  }
+
+Another example for this:
+
+  // Roll a Six - Rolls the dice until you get a 6, then you win. If you get a 3 you lose.
+
+  public boolean rollASix () {
+    int dice = rollDice (); // Creates a variable called 'dice' and sets the value to the result of the 'rollDice' function from earlier.
+
+    while (dice != 6) { // Checks that the value of the 'dice' variable is NOT equal to 6.
+      if (dice == 3) { // Checks if the value of the 'dice' variable is 3 (if True, break, you lost.)
+        break;
+      }
+      dice = rollDice (); // If the value of 'dice' is NOT equal to 3, the 'IF' condition ends, and then we reroll the dice.
+    }
+
+    if (dice == 6) { // If the 'dice' value was == 6, the while loop would end, and this would check if the value was 6
+      return true; // If the value was 6, it would move to this codeblock - which would return TRUE.
+    } else { // Otherwise if the value is anything else, do whats in the following codeblock
+      return false; // Returns false.
+    }
+  }
+
+**NOTE: I got confused why this happens... because I thought the 3 breaking out was something special.
+It's not. Its the same as returning any other number aside from 6, it just ends the rolling session early.
+Because a 6 will return TRUE, and any other number will return FALSE. We don't do anything special if a 3 is rolled, it's still FALSE.
+
+
+##Quiz - Know When To Quit:
+You need to modify the function int martingale() by adding an extra if block that checks if the money value has reached or exceeded
+the target specified if(money >= target). If it has, then the code should break out of the while loop using the break; statement
+
+Aside: the Martingale betting system is a terrible idea in practice. You can only keep doubling your bet until you blow through your
+entire bankroll, and then you're stuck. For more commentary check out this article on the Martingale betting system.
+
+Add a break to the function below to stop betting at the appropriate time based on the martingale system.
+
+  public int martingale () {
+    int money = 1000;
+    int target = 1200;
+    int bet = 10;
+    while (money > bet) {
+      boolean win = play();
+      if (win) {
+          if (money == target) {
+            break;
+          }
+        money += bet;
+        bet = 10;
+      } else {
+        money -+ bet;
+        bet *= 2;
+      }
+    }
+    return money;
+  }
+
+(My Answer was correct)
+
+##Press Conference
