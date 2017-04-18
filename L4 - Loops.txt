@@ -409,3 +409,69 @@ Add a break to the function below to stop betting at the appropriate time based 
 (My Answer was correct)
 
 ##Press Conference
+Say we are having a press conference and there are 10 news outlets present. We want to
+randomly select one news outlet at a time to ask a question. How can we maintain a list of
+all the various news outlets, and how can we go thru that list? Strings? Something else?
+
+This is a prime example for arrays!
+
+
+#Arrays:
+If you have a string variable, you can only store one value in it.
+If you have an array, you can store multiple strings all in one variable name. (So going back to the
+Press Conference example, this would be a good use case for storing all the news outlet names!)
+
+One limitation however - the data in the array has to be all the same Data Type.
+
+Arrays are indexed (starting at 0) and you can address each value in the position in array using its index. (ie: newsOutlet[5])
+
+Each 'spot' in an array is called a Cell. (You can draw a reference to like, an Excel spreadsheet here)
+
+To declare an array, you would use the following syntax:
+
+  int [] numbers = {22, 234, 1, 64, 2, 67, 883, 34, 6543, 34};
+
+The bonus of using this format: You don't have to specify how many cells are in the array first.
+
+Here's a fun example:
+
+If you have an array of an interger data type, you can use arithmetic against the cells, like this:
+
+  int sum = numbers[0] + numbers[3];
+
+So in your array of 'numbers' - you created a new variable called sum to store the sum of two array cells that you called up via their index.
+
+Of course, if you did that with a string data type, it would concatenate the values (which we've done before)
+
+
+#Quiz: Array Index
+What will be the value of s after running this code?
+
+  double [] fracNumbers = {4.0, 6.2, 3.75, 5.1 9.99};
+  double s = fracNumbers[0] + fracNumbers[3];
+
+My Answer: 9.1 (Correct)
+
+
+#Press Conference Part 2:
+Let's declare an array of strings that hold our news outlet names:
+
+  String [] newsOutlet = {"acb", "bbc", "CNN", "CBS", "AP", "NBC", "FOX", "npr", "sky", "Aljazeera"};
+
+Let's tell it to print out one of the cell values:
+
+  System.out.println(newsOutlet[2]);
+
+Which would output: CNN
+
+But to select a random one, we'll need to use Math.random to help...
+
+  String [] newsOutlet = {"acb", "bbc", "CNN", "CBS", "AP", "NBC", "FOX", "npr", "sky", "Aljazeera"};
+  double lucky = Math.random; // Stores the value of Math.random as 'lucky'
+  lucky *= 10; // Multiplies the 'lucky' value by 10, moving the decimal place over.
+  int luckyIndex = (int) lucky; // Converts the value 'lucky' from a double into an int (and also a whole number, discarding any fractional values), and stores that value as 'luckyIndex'
+
+  System.out.println(newsOutlet[luckyIndex]); // Prints out the cell value from the newsOutlet array, and the value of the index is set by the variable luckyIndex.
+
+
+#Arrays and Loops
