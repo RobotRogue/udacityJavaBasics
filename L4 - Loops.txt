@@ -475,3 +475,27 @@ But to select a random one, we'll need to use Math.random to help...
 
 
 #Arrays and Loops
+Arrays can also be passed in as arguments into functions. Functions can also return arrays.
+
+Let's create a function that calculates the average temperature from an array of temperatures.
+We'll call it caluclateAverage. It'll take in an array of doubles and return a single double value.
+
+Here's how we would go about it:
+
+  public double calculateAverage (double [] temperatures) {    // creates a function that takes in an array as an argument
+    int size = temperatures.length;                            // This will get us the number of values in the Array
+    double total = 0;                                          // We need to add up all the items in the Array, and store it as a value (for calculating the average)
+    for (int i = 0; i < size; i++) {                           // loops based on the size of the array
+      total += temperatures[i];                                // takes the cell value of the 'temperatures' array and stores it in the 'total' variable
+    }
+    double average = total / size;                             // To calculate the average, you divide the total sum by the number of values (cells)
+    return average;                                            // Returns the value of average out of the function
+  }
+
+It's always advisable to get the length of the array when working with one, because if you try to
+call a cell value that is outside of the array (ie: doesn't exist) you will get an error.
+
+So if the array is int [] num {34, 345, 765, 3434}; and you try to call num[7] it will error out because there is no value or cell at that index.
+
+
+#Rubiks Champ
