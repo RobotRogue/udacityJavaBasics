@@ -467,9 +467,9 @@ Which would output: CNN
 But to select a random one, we'll need to use Math.random to help...
 
   String [] newsOutlet = {"acb", "bbc", "CNN", "CBS", "AP", "NBC", "FOX", "npr", "sky", "Aljazeera"};
-  double lucky = Math.random; // Stores the value of Math.random as 'lucky'
-  lucky *= 10; // Multiplies the 'lucky' value by 10, moving the decimal place over.
-  int luckyIndex = (int) lucky; // Converts the value 'lucky' from a double into an int (and also a whole number, discarding any fractional values), and stores that value as 'luckyIndex'
+  double lucky = Math.random;                 // Stores the value of Math.random as 'lucky'
+  lucky *= 10;                                // Multiplies the 'lucky' value by 10, moving the decimal place over.
+  int luckyIndex = (int) lucky;               // Converts the value 'lucky' from a double into an int (and also a whole number, discarding any fractional values), and stores that value as 'luckyIndex'
 
   System.out.println(newsOutlet[luckyIndex]); // Prints out the cell value from the newsOutlet array, and the value of the index is set by the variable luckyIndex.
 
@@ -499,3 +499,89 @@ So if the array is int [] num {34, 345, 765, 3434}; and you try to call num[7] i
 
 
 #Rubiks Champ
+Let's write a function that shows us the fastest time to solve a rubiks cube in an array of recorded times:
+
+This was my implementation before seeing the solution:
+
+  double [] speed = {7.85, 7.32, 4.9, 6.22, 5.4, 7.3, 5.19};
+
+  public double search (double [] speed) {
+    int size = speed.length;
+    int min = 0; // error... didnt declare as double, could have set initial value to speed[0] (first cell in array)
+    for (int i = 0; i < size; i++) { // error... (started index at 0, not 1...)
+      if (min <= speed[i]) { // error... wrong order of comparison
+        min = speed[i];
+      }
+    }
+    return min;
+  }
+
+And here is the corrected code:
+
+  double [] speed = {7.85, 7.32, 4.9, 6.22, 5.4, 7.3, 5.19}; // Declares and populates an array
+
+  public double search (double [] speed) {            // Declare a function called 'search' and accepts an array 'speed' as a parameter
+    int size = speed.length;                          // Gets the length of the array for the loop counter
+    double min = speed[0];                            // Assigns the first array cell value to the 'min' variable - saves a step.
+    for (int i = 1; i < size; i++) {                  // loops based on the size of the array
+      if (speed[i] <= min) {                          // Compares the array cell value to the stored variable value to see if the cell is smaller
+        min = speed[i];                               // If the array cell value is smaller than the stored min value, set min to the new lower value
+      }
+    }
+    return min;                                       // Returns the value of average out of the function
+  }
+
+
+#Quiz - Find the longest name:
+Write a function that searches an array of strings and finds the longest string.
+
+You should implement the function String findLongestName(String [] names) which takes an array of
+Strings as an input containing a list of names, and return the String that has the longest name.
+
+To do so, try to follow these steps:
+
+1) The first step is to calculate and store the length of the input array, this is done using names.length; and store that in an integer variable.
+2) Then create a new String called longestName that will store the longest name in the array of names, initialize it with the first name in the array, that is names[0].
+3) Next, you should create a for loop that will compare every name in the array using names[i] against the longestName. Only replace the longestName value if the names[i] is longer .
+4) Finally, return the longestName variable as the return value of the function.
+
+
+My Answer:
+  String [] names = {"Todd", "Skippy", "Bob", "Bud", "Samantha", "Horace", "Al"};
+
+  public String findLongestName (String [] names) {
+    int size = names.length;
+    String longestName = names[0];
+    for (int i = 1; i < size; i++) {
+      if (names[i] >= longestName) {
+        longestName = names[i];
+      }
+    }
+    return longest;
+  }
+
+Quiz Solution:
+
+  String [] names = {"Todd", "Skippy", "Bob", "Bud", "Samantha", "Horace", "Al"};
+
+  public String findLongestName (String [] names) {
+    int size = names.length;
+    String longestName = names[0];
+    for (int i = 1; i < size; i++) {
+      if (names[i].length() > longestName.length()) {
+        longestName = names[i];
+      }
+    }
+    return longest;
+  }
+
+Basically, I didn't invoke the .length() correctly, and my comparison operator was 'wrong' (technically...)
+
+
+#Quiz - But what if there is a tie?
+What happens if there are two names that are the same length? What would the stored value of longestName be?
+
+My answer: "The first longest value" (reasoning - because of the > operator, the other value is NOT longer, and is not replaced.) -- (Correct)
+
+
+#2D Arrays
