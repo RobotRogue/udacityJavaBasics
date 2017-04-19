@@ -575,7 +575,7 @@ Quiz Solution:
     return longest;
   }
 
-Basically, I didn't invoke the .length() correctly, and my comparison operator was 'wrong' (technically...)
+Basically, I didn't invoke the .length() correctly
 
 
 #Quiz - But what if there is a tie?
