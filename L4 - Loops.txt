@@ -585,3 +585,327 @@ My answer: "The first longest value" (reasoning - because of the > operator, the
 
 
 #2D Arrays
+These are basically arrays that contain arrays. (An "array of arrays")
+
+Say for example you have some students, who take a few subjects, and each one has a grade.
+The Students: Gale, Tim, Sandra, Sam, Eric
+The Subjects: Math, English, Biology, Arts
+Each student has one grade per subject.
+
+If you were to think of that in excel for example, the "columns" would be the student names, the rows would start with the subjects,
+and then you could plot out the grades for the respective students for each subject...
+
+            | [0] Gale  | [1] Tim | [2] Sandra  | [3] Sam | [4] Eric  |
+  [0] maths | 87        | 93      | 99          | 75      | 60        |
+  [1] engl  | 93        | 70      | 98          | 90      | 75        |
+  [2] bio   | 82        | 75      | 95          | 80      | 66        |
+  [3] arts  | 90        | 75      | 99          | 85      | 70        |
+
+So to notate what is above, it would look like:
+
+  int [] [] grades
+
+So to find Tims grade in biology: grades [2] [1]
+To find Sams grade in english: grades [1] [3]
+To find Sandras grade in arts: grades [3] [2]
+
+So to address the 2D array, you first start with the index position of the main array, and then the index of the array within the array.
+
+You could also think of it like this: grades [[87,93,99,75,60], [93,70,98,90,75], [82,75,95,80,66], [90,75,99,85,70]]
+
+
+#Iterating Over 2D Arrays
+So we learned how to iterate over a single array using a for loop. But how do you iterate over a 2D array?
+
+One example is to set the array index, then the array-array's index to a variable, all in a FOR loop, like this:
+
+  for (int i = 0; i < 5; i++) { grades [1][i]; }
+
+In the above example we are just iterating over the second part of the array (or, the array inside the array)
+
+Let's show a practical example: How to calculate the average of grades for a subject in an array:
+
+  public static double englishAverage (int [] [] grades) {      // declares a function called englishAverage and accepts an array as a parameter
+    int total = 0;                                              // sets an empty variable called 'total' for adding up all the grades.
+    for (int i = 0; i < 5; i++) {                               // Loops over the array using 'i' as the counter
+      total += grades [1] [i];                                  // takes the current array cell value and adds it to the 'total' variable
+    }
+    double average = total/5.0;                                 // Gets the average by dividing the total by the number of values
+    return average;                                             // returns the average english grade
+  }
+
+Now, what if you wanted to do the same thing, but all the grades for a student, not for a course?
+You'd need to iterate thru each array cell for the student index, but also thru the corresponding grades for each course.
+
+Well, in that case, all the grades for a student will be at the same index, and we just need to loop thru each course.
+
+So for Sandras grades, we'd want the values for grades [0][2], grades [1][2], grades [2][2], and so on...
+
+So the loop would look like:
+
+  public static double sandraAverage (int [] [] grades) {      // declares a function called englishAverage and accepts an array as a parameter
+    int total = 0;                                              // sets an empty variable called 'total' for adding up all the grades.
+    for (int i = 0; i < 4; i++) {                               // Loops over the array using 'i' as the counter
+      total += grades [i] [2];                                  // in this case, the '2' is the Sandra index.
+    }
+    double average = total/4.0;                                 // Gets the average by dividing the total by the number of values
+    return average;                                             // returns the average english grade
+  }
+
+All of the above assumes that you know what is in the array and how many indexes each dimension has. But what if you had no idea?
+
+Here's how to write out the same function, but without knowing anything about the arrays themselves...
+
+  public static double sandraAverage (int [] [] grades) {       // declares a function called englishAverage and accepts an array as a parameter
+    int subjects = grades.length                                // gets the length of the array and stores it as an int value of subjects.
+    int total = 0;                                              // sets an empty variable called 'total' for adding up all the grades.
+    for (int i = 0; i < subjects; i++) {                        // Loops over the array using 'i' as the counter, and the subjects value as the comparison
+      total += grades [i] [2];                                  // in this case, the '2' is the Sandra index.
+    }
+    double average = total/(double)subjects;                    // Gets the average by dividing the total by the number of values, switching the value of subjects into a double
+    return average;                                             // returns the average english grade
+  }
+
+Oh no! How do we address the second array/index though? Here's one way:
+
+  public static double studentAverage (int [][] grades, int student) {
+    int total = 0;
+    int subjects = grades.length;
+    for(int i=0; i<subjects; i++) {
+      total += grades[i][student];
+    }
+    double average = total/(double)subjects;
+    return average;
+  }
+
+For the above code, we made it more general. Now when you call the function, we designbed it so that you can
+specify ANY student, using a second parameter value passed to the function (in this case, 'int student').
+
+Inside the function we can set the second array index value to 'student' - total += grades[i][student];
+Where we had previously had to specify a hard-coded value for them instead.
+
+
+#Nested Loops
+Say we wanted to go thru every value in each array inside the array... we would need a loop to go thru each array index, and
+one more loop that goes through each index for the array inside of the main array.
+
+We can do that using a loop inside a loop.
+
+
+#Quiz - Inside a Nested Loop
+How many times do you think this message will be printed?
+
+  for (int i=0; i<3; i++) {
+    for (int j=0; j<3; j++) {
+      System.out.println("Hi!");
+    }
+  }
+
+My Answer: 9 times -- correct.
+
+
+#How Nested Loops Work
+Every time the outer loop (the 'i' loop) runs, it resets the counter for the inner loop (loop j) to 0 again.
+So if the inner loop runs 3 times and the outer loop runs 3 times, it runs 9 times:
+The inside loop 3 (for the outide loops first run), and then 3 for the inside for the outsides second, and 3 times inside for the outsides 3rd.
+
+So that being said, how can we apply it to our Grades model from above?
+
+  public static double studentAverage (int [][] grades, int student) {
+    int total = 0;
+    int subjects = grades.length;
+    for(int i=0; i < subjects; i++) {
+      for (int j=0; j < student; j++) {
+        total += grades[i][j];
+    }
+    double average = total/(double)subjects;
+    return average;
+  }
+
+
+#L4 Project:
+
+Q1) What will be printed by this block of Java code?
+  int n = 10;
+    while (n < 50) {
+      n = n * 2;
+    }
+  System.out.println(n);
+
+My Answer: 80 -- correct.
+
+
+Q2) Complete the factorial() function below.
+It should return the product of all the numbers from 1 to the parameter n.
+For example, factorial(5) should return 120 because 1 x 2 x 3 x 4 x 5 = 120.
+Think about what kind of loop you want to use to accomplish this.
+Starting code:
+  public int factorial(int n) {
+  }
+
+My Answer:
+
+  public int factorial (int n) {
+    int result = 1;
+    int count = 1;
+    while (count <= n) {
+      result = result * count;
+      count++;
+    }
+    return result;
+  }
+
+Ok so, my answer was correct, but they handled it in a for loop... here's THEIR solution:
+
+  public int factorial(int n) {
+    int factorial = 1;
+    for (int i = 1; i <= n; i++) {
+      factorial = factorial * i;
+    }
+    return factorial;
+  }
+
+So it's the same thing, I just did it less efficiently.
+
+
+Q3) Complete the code in this function to find and return the lowest index in the String array stringArray that the String target occurs.
+If the String target does not occur in stringArray, -1 should be returned.
+
+Starting code:
+  public int indexOfFirstOccurrence(String[] stringArray, String target) {
+    return -1;
+  }
+
+As an example of how this function should work, this code should print 1, because the word “Java” appears at index 1.
+
+  String[] sentence = {"Learning", "Java", "is", "fun."};
+  int indexOfWordJava = indexOfFirstOccurrence(sentence, "Java");
+  System.out.println(indexOfWordJava);
+
+Hint: you cannot compare two Strings using the == operator!
+This will be false unless the two Strings are actually the same String object, not just two Strings with the same letters.
+To check whether two Strings have the same letters, use the equals() method: if (myString1.equals(myString2)).
+
+My Answer:
+
+  public int indexOfFirstOccurrence(String[] stringArray, String target) {
+    for (int j=0; j<3; j++) {
+        if (stringArray[i].equals(target)) {
+          return i;
+        }
+      } else {
+        return -1;
+      }
+  }
+
+My only error was on line 794 - I did return target; when it should have been return i;
+Also, my else statement is implied, so i don't need to declare it. I could have just said 'return -1' outside the for loop.
+
+Here is an example of their solution:
+
+  public int indexOfFirstOccurrence(String[] stringArray, String target) {
+    for (int i = 0; i < stringArray.length; i++) {
+      if (stringArray[i].equals(target)) {
+          return i;
+      }
+    }
+    return -1;
+  }
+
+Q4) A savings account yields 5% interest annually.
+This Java function is designed to determine how many years it will take for you to have $1,000,000 on deposit given an initial value.
+The parameter represents the initial deposit, and the function should return an integer number of years before there will be $1,000,000
+or more in the account. Write a loop to determine the number of years, and return that value.
+
+(Hint: Do we know how many times this loop needs to iterate? Does this mean a for loop or a while loop is more appropriate?)
+
+Starting code:
+  public int yearsTilOneMillion(double initialBalance) {
+    return 0;
+  }
+
+My Answer:
+
+  public int yearsTilOneMillion (double initialBalance) {
+    int years = 0;
+    balance = initialBalance;
+    while (balance < 1000000) {
+      balance = balance + (balance * .05);
+      years++
+    }
+    return years;
+  }
+
+So, my calculation for adding 5% interest was wrong, but overall my code was pretty close. Below is the example solution:
+
+  public int yearsTilOneMillion(double initialBalance) {
+    int years = 0;
+    double balance = initialBalance;
+    while (balance < 1000000) {
+      years++;
+      balance = balance * 1.05;
+    }
+    return years;
+  }
+
+Q5) Complete the Java function below to print out all the Strings in the String array parameter in reverse order.
+(The String at the highest index should be printed first, then the String at the next highest index, and so on.
+The String at index 0 should be printed last.)
+
+For example, if a String array called weekdays had value:
+
+  {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"}
+
+then this function call:
+
+  printInVerverse(weekdays);
+
+would print:
+
+Friday
+Thursday
+Wednesday
+Tuesday
+Monday
+
+Starting code:
+  public void printInReverse(String[] stringArray) {
+  }
+
+My Answer: (correct)
+
+So, we need to get the length of the array, then iterate thru printing the values, but in reverse.
+We know this can be done with a FOR loop, and changing the counter and condition and increment.
+
+  public void printInReverse(String[] stringArray) {
+    int count = stringArray.length;
+    for (int i = count; i > 0; i--) {
+      System.out.println(stringArray[i]);
+    }
+  }
+
+Example solution code:
+  public void printInReverse(String[] stringArray) {
+    for (int i = 0; i < stringArray.length; i++) {
+      //When i has its smallest possible value, 0, the expression
+      //below will be the length of the string array minus one,
+      //which is the highest index. When i has its largest possible
+      //value, stringArray.length - 1, this expression will be
+      //0, which is the the lowest index.
+      int indexToPrint = stringArray.length - 1 - i;
+      System.out.println(stringArray[indexToPrint]);
+    }
+  }
+
+A neater way to solve this would be to structure the for loop differently. For loop variables
+do not need to begin at 0, and do not always need to go up by one. This loop is structured
+so that the loop variable i begins at the largest index and decreases by 1 every time the
+loop iterates. (The syntax i-- is shorthand for i = i - 1;.)
+
+  public void printInReverse(String[] stringArray) {
+    for (int i = stringArray.length - 1; i >= 0; i--) {
+      System.out.println(stringArray[i]);
+    }
+  }
+
+Q6) ....
