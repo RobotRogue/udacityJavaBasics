@@ -908,4 +908,70 @@ loop iterates. (The syntax i-- is shorthand for i = i - 1;.)
     }
   }
 
-Q6) ....
+Q6) Complete the function below, which finds the range covered by an integer array.
+Inside the function, find the smallest value in the parameter array, and find the largest value,
+and return the largest value minus the smallest value.
+
+If the array has length 0, return -1.
+
+For example, if the variable myIntArray had the value
+
+  {1, 0, 2, 3, -1, 2}
+
+then the function call
+
+  findRange(myIntArray)
+
+would return 4.
+
+The largest value in the array is 3, the smallest value is -1, and 3−(−1) = 4.
+
+Starting code:
+  public int findRange(int[] intArray) {
+    return -1;
+  }
+
+My Answer: -- not correct...
+
+  public int findRange(int[] intArray) {
+    int highestNum = 0;
+    int lowestNum = highestNum;
+    for (int i = stringArray.length; i <= stringArray.length; i++) {
+      if (stringArray[i] > highestNum) {
+        highestNum = stringArray[i];
+      }
+      return highestNum;
+    }
+
+    for (int j = stringArray.length; j <= stringArray.length; j++) {
+      if (stringArray[j] < lowestNum) {
+        lowestNum = stringArray[j];
+
+      }
+      return lowestNum - highestNum;
+    }
+    return -1;
+  }
+
+I was on the right path, but I didn't quite get there.
+
+Example Solution:
+  public int findRange(int[] intArray) {            // Declares the funciton findRange and accepts an array as a parameter
+    if (intArray.length == 0) {                     // Checks to see if the array length is not 0
+      return -1;                                    // Returns -1 if the array length IS equal to 0
+    }
+
+    int smallest = intArray[0];                     // Creates a variable called smallest with the first index cell value in the array
+    int largest = intArray[0];                      // Creates a variable called largest with the first index cell value in the array
+    for (int i = 1; i < intArray.length; i++) {     // For loop that iterates thru each value in the array
+      if (intArray[i] < smallest) {                 // Checks to see if the current value is smaller than the stored 'smallest' value
+        smallest = intArray[i];                     // If the current value is lower than the stored value, it updates the current to the new lower value
+      }
+      if (intArray[i] > largest) {                  // Checks to see if the current value is larger than the stored 'largest' value
+        largest = intArray[i];                      // If the current value is higher than the stored value, it updates the current to the new higher value
+      }
+    }
+    return largest - smallest;                      // Returns the difference of the lower and higher value
+  }
+
+Q7) 
