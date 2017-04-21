@@ -1029,6 +1029,42 @@ https://howtoprogramwithjava.com/java-recursion/
 
 My Answer:
 
-  public int monopolyRoll () {
-    
+  public int randomRoll() {                       // Declare a function 'randomRoll' that takes no params
+    double randomNumber = Math.random() * 6;      // Sets a value of 'math.random *6' to a 'randomNumber' variable
+    randomNumber = randomNumber + 1;              // Shifts the number to a range of 1-6 instead of 0-5
+    int randomInt = (int) randomNumber;           // Changes the value from a double to an int
+    return randomInt;                             // Returns the value from the function
   }
+
+  public int monopolyRoll() {                     // Declare a function 'monopolyRoll' that takes no params
+    int rollOne = randomRoll();                   // Runs randomRoll and stores the result as 'rollOne'
+    int rollTwo = randomRoll();                   // Runs randomRoll and stores the result as 'rollTwo'
+
+    while (rollOne == rollTwo) {                  // Runs a loop if rollOne and rollTwo are equal
+      int total = rollOne + rollTwo;
+      monopolyRoll();                             // When the loop runs, it reruns this function and stores the result as 'total'
+    }
+    return total;
+  }
+
+My answer was apparently incorrect. Here is one example solution:
+
+  public int diceRoll(int sides) {
+    double randomNumber = Math.random() * sides;
+    randomNumber = randomNumber + 1;
+    return (int) randomNumber;
+  }
+
+  public int monopolyRoll() {
+    int roll1 = diceRoll(6);
+    int roll2 = diceRoll(6);
+    int total = roll1 + roll2;
+    while (roll1 == roll2) {
+      roll1 = diceRoll(6);
+      roll2 = diceRoll(6);
+      total = total + roll1 + roll2;
+    }
+    return total;
+  }
+
+So... shit.
