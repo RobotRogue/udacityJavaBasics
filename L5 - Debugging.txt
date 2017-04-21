@@ -1,3 +1,40 @@
 Hello notes! https://classroom.udacity.com/courses/ud282/lessons/8192650550/concepts/38f71cca-9f97-4fbd-baee-7c39914b9376
 
 ###L5 Debugging
+
+#JDK - The Java Development Kit
+
+Contains the Java Runtime Environment - which contains all the builtin functions that are ready for us to use.
+It also contains the Java Virtual Machine - which allows Java code to run on any platform.
+
+We also need the Java compiler - it translates code into a form that a computer can understand and run.
+
+Java code gets compiled into bytecode, then the JVM translates that into the machine code for whatever platform you are on.
+
+
+#Command Prompt:
+You can use the command prompt to compile and run Java on your machine.
+Java code can be written in any text editor, but in order to turn it into code that can be run, you need to compile it first.
+Once the code is compiled, you can then run that code using a command line command.
+
+To compile: javac HelloWorld.java
+To run: java HelloWorld
+
+(HelloWorld.java should be the filename of the file you want to compile)
+(When running HelloWorld, you shouldn't include the .java extension)
+
+Some notes:
+ - Your filename of your .java file that you want to compile has to match the same name as the class inside the file
+ (So if your file has 'public class HelloWorld', your file has to be named HelloWorld.java)
+ - Generally, your class should begin in an uppercase letter. So HelloWorld is preferred over helloWorld.
+
+
+#IntelliJ or an IDE
+IDE's (integrated development environments) - a full-featured tool to create code in. Plain text editors are okay, but a full IDE
+has a many more useful features and tools to make things easier.
+
+Some of these features:
+ - Syntax hints (tooltips)
+ - Code syntax coloring
+ - Error checking
+ - Code organization / tree structure

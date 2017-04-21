@@ -1,10 +1,12 @@
+/*
+ * This is my first java program.
+ * This will print 'Hello World' as the output
+ */
+
 public class helloWorld {
 
-/* This is my first java program.
-   This will print 'Hello World' as the output
-*/
-
-   public static void main(String []args) {
-      System.out.println("Hello World"); // prints Hello World
+   public static void main(String []args) {                                     // This function is needed to run the code.
+      System.out.println("Hello World");                                        // prints Hello World
    }
+
 }

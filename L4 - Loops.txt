@@ -1041,7 +1041,7 @@ My Answer:
     int rollTwo = randomRoll();                   // Runs randomRoll and stores the result as 'rollTwo'
 
     while (rollOne == rollTwo) {                  // Runs a loop if rollOne and rollTwo are equal
-      int total = rollOne + rollTwo;
+      int total = rollOne + rollTwo;              // ??? I think I scoped this variable wrong, does it get destroyed when re-run?
       monopolyRoll();                             // When the loop runs, it reruns this function and stores the result as 'total'
     }
     return total;
