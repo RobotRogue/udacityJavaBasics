@@ -29,7 +29,7 @@ Some notes:
  - Generally, your class should begin in an uppercase letter. So HelloWorld is preferred over helloWorld.
 
 
-#IntelliJ or an IDE
+#Using an IDE such as IntelliJ
 IDE's (integrated development environments) - a full-featured tool to create code in. Plain text editors are okay, but a full IDE
 has a many more useful features and tools to make things easier.
 
