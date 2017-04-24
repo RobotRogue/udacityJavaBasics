@@ -38,3 +38,30 @@ Some of these features:
  - Code syntax coloring
  - Error checking
  - Code organization / tree structure
+
+#Choosing an SDK
+When creating a new project, it will ask you which SDK (JDK) to use for development - in most cases we will use 1.8.
+
+
+#New Project in IntelliJ
+In the beginning when we create a new project we will want to create from template and choose Command Line App template.
+
+The Project name needs to be specified, then it will create a folder for us where it is stored.
+
+Then it will create a base package (com.yourprojectname) -- if you were to distribute your project online, you'd want a unique name here.
+
+
+#Project Structure
+When viewing your project, you will see your main project - if you expand that you will see SRC which hosts the main source code for your project.
+Below SRC you would find com.yourprojectname (aka - your package) - and then below that you would find the main class for your application.
+
+
+#Tic Tac Toe Game
+We'll download and edit some code for a Tic Tac Toe game for us to edit and play.
+
+The current code cannot detect when someone has won (3 x's or 3 o's in a row)
+
+The challenge is to modify the code to detect when there is a winning condition.
+
+
+#Importing the code Using Gradle
